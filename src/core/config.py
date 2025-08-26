@@ -52,11 +52,11 @@ class Settings(BaseSettings):
     ] = []
     PROJECT_NAME: str = "task-manager"
     SENTRY_DSN: HttpUrl | None = None
-    DB_HOST: str = EnvManager.get_str("DB_HOST", default="localhost")
+    DB_HOST: str = EnvManager.get_str("POSTGRES_HOST", default="")
     DB_PORT: int = 5432
-    DB_LOGIN: str = EnvManager.get_str("DB_LOGIN", default="postgres")
-    DB_PASSWORD: str = EnvManager.get_str("DB_PASSWORD", default="qrymirald5186")
-    DB_NAME: str = EnvManager.get_str("DB_NAME", default="postgres")
+    DB_LOGIN: str = EnvManager.get_str("POSTGRES_USER", default="postgres")
+    DB_PASSWORD: str = EnvManager.get_str("POSTGRES_PASSWORD", default="")
+    DB_NAME: str = EnvManager.get_str("POSTGRES_DB", default="")
 
     @computed_field  # type: ignore[prop-decorator]
     @property
